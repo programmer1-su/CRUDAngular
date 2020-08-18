@@ -1,0 +1,19 @@
+<div class="mat-elevation-z8">
+    <h1>スケル追加</h1>
+    <form [formGroup]="skillForm" (ngSubmit)="add()">
+
+        <mat-form-field fxFill>
+            <mat-label>名前</mat-label>
+            <input required matInput formControlName="name" required class="form-control" maxlength="20" />
+            <mat-error *ngIf="f.name.errors"><strong>名前は必要です。</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFill>
+            <mat-label>記載</mat-label>
+            <textarea matInput class="form-control" formControlName="description" rows="3" maxlength="50"></textarea>
+            <mat-error *ngIf="f.name.errors"><strong>記載は必要です。</strong></mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">追加</button>
+        <button mat-raised-button color="primary" (click)="onClear()">削除</button>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<div class="table-container mat-elevation-z8">
+    <table fxFill mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef class="w-20-p"> 名前 </th>
+            <td mat-cell *matCellDef="let skill"> {{skill.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef class="w-20-p"> 記載 </th>
+            <td mat-cell *matCellDef="let skill"> {{skill.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="w-15-p">  </th>
+            <td mat-cell *matCellDef="let skill">
+                <button mat-icon-button (click)="editskill(skill)" matTooltip="Edit" matTooltipPosition="below">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteSkill(skill)" matTooltip="Delete" matTooltipPosition="below">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let skill; columns: displayedColumns;"></tr>
+    </table>
+</div>
